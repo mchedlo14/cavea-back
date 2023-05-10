@@ -38,4 +38,8 @@ export default class InventoryRepository {
         
         return await result;
     };
+    
+    deleteInventory = async (id: number) => {
+        return Inventory.destroy({where: {id: id}});
+    };
 }

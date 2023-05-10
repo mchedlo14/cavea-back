@@ -14,8 +14,8 @@ export class ApiError extends Error {
 }
 
 export class NotFoundError extends ApiError {
-    constructor(path: string) {
-        super(StatusCodes.NOT_FOUND, `The requested path ${path} not found!`);
+    constructor() {
+        super(StatusCodes.NOT_FOUND, `not found!`);
     }
 }
 

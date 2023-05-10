@@ -3,6 +3,7 @@ import {Service} from 'typedi';
 import InventoryDTO from '../dto/InventoryDTO';
 import ListingQueryDTO, {OrderBy, OrderingDirection} from '../dto/ListingQueryDTO';
 import InventoryService from '../services/InventoryService';
+import {NotFoundError} from '../utils/ApiError';
 import {asyncWrapper} from '../utils/asyncWrapper';
 import {SuccessResponse} from '../utils/SuccessResponse';
 
@@ -32,5 +33,16 @@ export default class InventoryController {
         
         const response = await this.inventoryService.listInventories(listingQueryDTO);
         return new SuccessResponse(response);
+    });
+    
+    deleteInventory = asyncWrapper(async (req: Request) => {
+        const id = parseInt(req.params.id);
+        const response = await this.inventoryService.deleteInventory(id);
+        
+        if (response === 0) {
+            return new NotFoundError();
+        }
+        
+        return new SuccessResponse({message: response});
     });
 }

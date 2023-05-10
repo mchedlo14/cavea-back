@@ -15,4 +15,8 @@ export default class InventoryService {
     listInventories = async (listingQueryDTO: ListingQueryDTO) => {
         return await this.inventoryRepository.listInventories(listingQueryDTO);
     };
+    
+    deleteInventory = async (id: number) => {
+        return await this.inventoryRepository.deleteInventory(id);
+    };
 }

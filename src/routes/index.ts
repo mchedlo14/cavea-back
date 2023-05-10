@@ -11,6 +11,7 @@ const allRoutes = [
 ];
 
 allRoutes.forEach((route) => {
+    console.log("PATH: ", route.path)
     router.use(route.path, route.route);
 });
 

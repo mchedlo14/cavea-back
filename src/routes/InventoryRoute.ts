@@ -10,5 +10,6 @@ const inventoryRoute = Container.get(InventoryController);
 
 router.post('/inventories', RequestValidator.validate(InventoryRequest), inventoryRoute.addInventory);
 router.get('/inventories', inventoryRoute.listInventories);
+router.delete('/inventories/:id', inventoryRoute.deleteInventory);
 
 export default router;
