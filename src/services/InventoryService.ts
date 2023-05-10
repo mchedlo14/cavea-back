@@ -1,4 +1,5 @@
 import {Service} from 'typedi';
+import ListingQueryDTO from "../dto/ListingQueryDTO";
 import InventoryRepository from '../repositories/InventoryRepository';
 import InventoryDTO from "../dto/InventoryDTO";
 
@@ -11,7 +12,7 @@ export default class InventoryService {
         return await this.inventoryRepository.addInventory(inventoryDTO);
     };
     
-    listInventories = async () => {
-        return await this.inventoryRepository.listInventories();
+    listInventories = async (listingQueryDTO: ListingQueryDTO) => {
+        return await this.inventoryRepository.listInventories(listingQueryDTO);
     };
 }

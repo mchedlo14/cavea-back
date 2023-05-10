@@ -12,7 +12,7 @@ export default class InventoryDTO {
     }
     
     set name(value: string) {
-        this._name = value;
+        this._name = value.toLowerCase();
     }
     
     get location(): string {
