@@ -10,13 +10,13 @@ export class Inventory extends Model {
         allowNull: false,
     })
     name!: string;
-
+    
     @Column({
         type: DataType.STRING,
         allowNull: false,
     })
     location!: string;
-
+    
     @Column({
         type: DataType.BIGINT,
         allowNull: false,

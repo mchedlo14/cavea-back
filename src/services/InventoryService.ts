@@ -6,11 +6,11 @@ import InventoryDTO from "../dto/InventoryDTO";
 export default class InventoryService {
     constructor(public inventoryRepository: InventoryRepository) {
     }
-
+    
     addInventory = async (inventoryDTO: InventoryDTO) => {
-        return await  this.inventoryRepository.addInventory(inventoryDTO)
-    }
-
+        return await this.inventoryRepository.addInventory(inventoryDTO);
+    };
+    
     listInventories = async () => {
         return await this.inventoryRepository.listInventories();
     };
