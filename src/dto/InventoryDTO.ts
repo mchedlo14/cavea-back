@@ -1,7 +1,5 @@
 import {lariToTetri} from "../utils/currency";
 
-const GEO_TETRI_QUANTITY_IN_GEO_LARI = 100;
-
 export default class InventoryDTO {
     private _name: string;
     
