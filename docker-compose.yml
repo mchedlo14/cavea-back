@@ -1,6 +1,7 @@
 version: '3'
 
 services:
+
   database-layer:
     image: postgres
     container_name: inventory-management-db
@@ -8,7 +9,6 @@ services:
       - POSTGRES_USER=dbuser
       - POSTGRES_PASSWORD=dbpassword
       - POSTGRES_DB=dbname
-
     volumes:
       - database-volume:/var/lib/postgresql/data
     ports:
@@ -16,7 +16,9 @@ services:
     networks:
       - shared-network
     restart: on-failure
-  express-typescript-boilerplate:
+
+
+  inventory-management-api:
     depends_on:
       - database-layer
     environment:
@@ -36,6 +38,8 @@ services:
     networks:
       - shared-network
     restart: on-failure
+
+
   adminer:
     image: adminer
     container_name: adminer-docker
@@ -47,8 +51,24 @@ services:
       - shared-network
     restart: on-failure
 
+
+  pgadmin:
+    container_name: pg-admin
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=root
+    depends_on:
+      - database-layer
+    ports:
+      - '8081:80'
+    networks:
+      - shared-network
+
+
 volumes:
   database-volume:
+
 
 networks:
   shared-network:
