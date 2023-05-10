@@ -1,4 +1,4 @@
-import {lariToTetri} from "../utils/currency";
+import {lariToTetri} from '../utils/currency';
 
 export default class InventoryDTO {
     private _name: string;

@@ -1,8 +1,8 @@
-import {Op} from "sequelize";
-import ListingQueryDTO from "../dto/ListingQueryDTO";
+import {Op} from 'sequelize';
+import ListingQueryDTO from '../dto/ListingQueryDTO';
 import {Inventory} from '../models/Inventory';
 import {Service} from 'typedi';
-import InventoryDTO from "../dto/InventoryDTO";
+import InventoryDTO from '../dto/InventoryDTO';
 
 @Service()
 export default class InventoryRepository {
@@ -18,8 +18,8 @@ export default class InventoryRepository {
     
     listInventories = async (listingQueryDTO: ListingQueryDTO): Promise<Inventory[]> => {
         const listingOffset = listingQueryDTO.paginationLimit * listingQueryDTO.paginationPage;
-        let location = "%";
-        if (listingQueryDTO.location !== "") {
+        let location = '%';
+        if (listingQueryDTO.location !== '') {
             location = listingQueryDTO.location;
         }
         

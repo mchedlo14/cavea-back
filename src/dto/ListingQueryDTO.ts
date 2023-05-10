@@ -1,14 +1,14 @@
-import {lariToTetri} from "../utils/currency";
+import {lariToTetri} from '../utils/currency';
 
 export enum OrderBy {
-    NAME = "name",
-    PRICE = "price",
-    LOCATION = "location"
+    NAME = 'name',
+    PRICE = 'price',
+    LOCATION = 'location'
 }
 
 export enum OrderingDirection {
-    ASCENDING = "ASC",
-    DESCENDING = "DESC"
+    ASCENDING = 'ASC',
+    DESCENDING = 'DESC'
 }
 
 export default class ListingQueryDTO {
@@ -16,7 +16,7 @@ export default class ListingQueryDTO {
     private _paginationPage: number;
     private _orderBy: OrderBy;
     private _orderingDirection: OrderingDirection;
-    private _location: string
+    private _location: string;
     
     get paginationLimit(): number {
         return this._paginationLimit;

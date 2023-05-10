@@ -1,7 +1,7 @@
 import {Service} from 'typedi';
-import ListingQueryDTO from "../dto/ListingQueryDTO";
+import ListingQueryDTO from '../dto/ListingQueryDTO';
 import InventoryRepository from '../repositories/InventoryRepository';
-import InventoryDTO from "../dto/InventoryDTO";
+import InventoryDTO from '../dto/InventoryDTO';
 
 @Service()
 export default class InventoryService {

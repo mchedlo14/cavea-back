@@ -1,7 +1,7 @@
-import {Request} from "express";
+import {Request} from 'express';
 import {Service} from 'typedi';
-import InventoryDTO from "../dto/InventoryDTO";
-import ListingQueryDTO, {OrderBy, OrderingDirection} from "../dto/ListingQueryDTO";
+import InventoryDTO from '../dto/InventoryDTO';
+import ListingQueryDTO, {OrderBy, OrderingDirection} from '../dto/ListingQueryDTO';
 import InventoryService from '../services/InventoryService';
 import {asyncWrapper} from '../utils/asyncWrapper';
 import {SuccessResponse} from '../utils/SuccessResponse';
@@ -28,8 +28,8 @@ export default class InventoryController {
         listingQueryDTO.orderingDirection = <OrderingDirection>req.query.ordering_direction;
         listingQueryDTO.location = <string>req.query.location;
         
-        listingQueryDTO.orderBy = (req.query.order_by === "") ? OrderBy.NAME : <OrderBy>req.query.order_by;
-    
+        listingQueryDTO.orderBy = (req.query.order_by === '') ? OrderBy.NAME : <OrderBy>req.query.order_by;
+        
         const response = await this.inventoryService.listInventories(listingQueryDTO);
         return new SuccessResponse(response);
     });
