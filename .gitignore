@@ -4,3 +4,4 @@ logs
 .vscode
 .idea
 .yarn
+yarn-error.log
