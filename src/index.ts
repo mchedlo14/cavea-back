@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use('/api/v1', routes);
 
-app.use((req: Request, res: Response, next: NextFunction) => next(new NotFoundError(req.path)));
+app.use((req: Request, res: Response, next: NextFunction) => next(new NotFoundError()));
 
 app.use(ErrorHandler.handle());
 
