@@ -3,14 +3,17 @@ version: '3'
 services:
 
   database-layer:
-    image: postgres
+    build:
+      context: .
+      dockerfile: Dockerfile.db.dev
     container_name: inventory-management-db
     environment:
       - POSTGRES_USER=dbuser
       - POSTGRES_PASSWORD=dbpassword
       - POSTGRES_DB=dbname
     volumes:
-      - database-volume:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+#      - database-volume:/var/lib/postgresql/data
     ports:
       - '5432:5432'
     networks:
@@ -66,8 +69,8 @@ services:
       - shared-network
 
 
-volumes:
-  database-volume:
+#volumes:
+#  database-volume:
 
 
 networks:
